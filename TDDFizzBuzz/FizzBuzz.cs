@@ -7,7 +7,6 @@ namespace TDDFizzBuzz
 
         private FizzBuzz()
         {
-
         }
 
         public static FizzBuzz Instance
@@ -22,7 +21,7 @@ namespace TDDFizzBuzz
             }
         }
 
-        public static string GetNum(int num)
+        public string GetNum(int num)
         {
             if (num <= 0 || 100 < num)
             {

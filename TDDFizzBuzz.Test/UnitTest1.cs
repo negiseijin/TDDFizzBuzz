@@ -19,7 +19,7 @@ namespace TDDFizzBuzz.Tests
 
     public class Tests : IClassFixture<TestsFixture>
     {
-        TestsFixture fixture;
+        private readonly TestsFixture fixture;
 
         public Tests(TestsFixture fixture)
         {
@@ -33,7 +33,7 @@ namespace TDDFizzBuzz.Tests
         public void _3と5の倍数以外の数を文字列に変換する(int num, string expected)
         {
             //Act 実行
-            var actual = FizzBuzz.GetNum(num);
+            var actual = fixture.FizzBuzz.GetNum(num);
             //Assert 検証
             actual.Is(expected);
         }
@@ -45,7 +45,7 @@ namespace TDDFizzBuzz.Tests
         public void _3の倍数を渡すと文字列Fizzを返す(int num)
         {
             //Act 実行
-            var actual = FizzBuzz.GetNum(num);
+            var actual = fixture.FizzBuzz.GetNum(num);
             //Assert 検証
             actual.Is("Fizz");
         }
@@ -57,7 +57,7 @@ namespace TDDFizzBuzz.Tests
         public void _5の倍数を渡すと文字列Buzzを返す(int num)
         {
             //Act 実行
-            var actual = FizzBuzz.GetNum(num);
+            var actual = fixture.FizzBuzz.GetNum(num);
             //Assert 検証
             actual.Is("Buzz");
         }
@@ -69,7 +69,7 @@ namespace TDDFizzBuzz.Tests
         public void _3と5の倍数を渡すと文字列FizzBuzzを返す(int num)
         {
             //Act 実行
-            var actual = FizzBuzz.GetNum(num);
+            var actual = fixture.FizzBuzz.GetNum(num);
             //Assert 検証
             actual.Is("FizzBuzz");
         }
@@ -81,7 +81,7 @@ namespace TDDFizzBuzz.Tests
         public void _1から100以外の数を渡すと例外を返す(int num)
         {
             //Act 実行
-            var actual = Assert.Throws<ArgumentException>(() => FizzBuzz.GetNum(num));
+            var actual = Assert.Throws<ArgumentException>(() => fixture.FizzBuzz.GetNum(num));
             //Assert 検証
             actual.Message.Is("1から100までの数字を入力してください");
         }

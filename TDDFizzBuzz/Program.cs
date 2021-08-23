@@ -6,9 +6,10 @@ namespace TDDFizzBuzz
     {
         static void Main(string[] args)
         {
+            var fizzBuzz = FizzBuzz.Instance;
             for (int i = 1; i <= 100; i++)
             {
-                Console.WriteLine(FizzBuzz.GetNum(i));
+                Console.WriteLine(fizzBuzz.GetNum(i));
             }
         }
     }
